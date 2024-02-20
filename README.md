@@ -3,6 +3,16 @@
 [![Python versions](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/downloads/)
 [![license: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
+# DAP Project xAI
+All notebooks that reproduce project experiments are saved in [notebooks](notebooks) directory. They contain code chunks that automate environment setup and installation, therefore should be directly runnable. However, there is a necessary order in which one must run them:
+1. [GFlowNet_example](notebooks/GFlowNet_example.ipynb) reproduces paper results and saves trained GFlowNet to "./model". The following notebooks require model to be uploaded to colab machine memory.
+2. [trajectories_embeddings](notebooks/trajectories_embeddings.ipynb) is an abandon trial to create deep embeddings of sampled trajectories.
+3. [mols_chem_features](notebooks/mols_chem_features.ipynb) creates tabular data with chemical features that describe molecules on trajectories steps. Creates csv file "./featurized_mols_actions.csv" that is required by next notebooks.
+4. [actions_classifier](notebooks/actions_classifier.ipynb) builds decision tree explainations of gflownet actions based on featurized mols.
+5. [mols_patterns_analysis](notebooks/mols_patterns_analysis.ipynb) builds n-gram explainations of gflownet trajectories.
+
+To my best knowledge, despite handling of the intermediate results files, the code should be runnable and keep fixed environment without any other actions.
+
 # gflownet
 
 GFlowNet-related training and environment code on graphs.
